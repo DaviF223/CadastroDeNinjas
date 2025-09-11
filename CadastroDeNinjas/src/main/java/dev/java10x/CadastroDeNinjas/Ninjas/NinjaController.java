@@ -26,8 +26,8 @@ public class NinjaController {
     }
 
     // Mostrar todos os Ninjas (READ)
-    @GetMapping("/todos")
-    public String mostrarTodosOsNinjas(){
+    @GetMapping("/listar")
+    public String listarTodosOsNinjas(){
         return "Mostrando todos os Ninjas";
     }
 
