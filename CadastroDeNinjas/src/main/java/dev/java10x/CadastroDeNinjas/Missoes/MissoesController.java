@@ -2,9 +2,16 @@ package dev.java10x.CadastroDeNinjas.Missoes;
 
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/missoes")
 public class MissoesController {
+
+    private MissoesService missoesService;
+    public MissoesController(MissoesService missoesService){
+        this.missoesService = missoesService;
+    }
 
     // Post -- Mandar requisição para criar as missões
     @PostMapping("/criar")
@@ -13,14 +20,14 @@ public class MissoesController {
     }
 
     // Get -- mandar uma requisição para visualizar as missões
-    @GetMapping("/missaoID")
-    public String missaoPorID(){
-        return "procura missao por ID";
+    @GetMapping("/listar/{id}")
+    public MissoesModel missaoPorID(@PathVariable Long id){
+        return missoesService.missaoPorId(id);
     }
 
     @GetMapping("/listar")
-    public String listarMissoes(){
-        return "visualiza todas as missoes";
+    public List<MissoesModel> listartodasMissoes(){
+        return missoesService.listarMissoes();
     }
 
     // Put -- mandar uma requisição para alterar as missões

@@ -38,13 +38,6 @@ public class NinjaController {
         return ninjaService.listarNinjas();
     }
 
-    // Mostrar Ninja por ID (READ)
-    @GetMapping("/ninjaID")
-    public String mostrarNinjaPorId(){
-        return "Mostrando ninja por id";
-    }
-
-
     // Alterar dados dos Ninjas (UPDATE)
     @PutMapping("/alterar")
     public String alteraNinjaPorId(){
